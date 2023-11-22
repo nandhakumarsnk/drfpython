@@ -1,0 +1,339 @@
+
+var blog_content = [
+    { id: 1, image: "./Blog-images/blog-article-img1.png", 
+      date: "23/8/23", 
+      title: "Lorem ipsum may be used as a placeholder before copy is available.",
+      content: "Lorem ipsum may be used as a placeholder before copy is available. It is also used to temporarily",
+      author: "Nandhakumar", 
+      desig: "Study Power CEO" },
+    { id: 2, image: "./Blog-images/blog-article-img2.png", 
+      date: "24/8/23", 
+      title: "Lorem ipsum may be used as a placeholder before copy is available.",
+      content: "Lorem ipsum may be used as a placeholder before copy is available. It is also used to temporarily",
+      author: "kushala", 
+      desig: "Study Power CEO" },
+    { id: 3, image: "./Blog-images/blog-article-img3.png", 
+      date: "25/8/23", 
+      title: "Lorem ipsum may be used as a placeholder before copy is available.",
+      content: "Lorem ipsum may be used as a placeholder before copy is available. It is also used to temporarily",
+      author: "DishaMore", 
+      desig: "Study Power CEO" },
+    { id: 4, image: "./Blog-images/blog-article-img4.png", 
+      date: "26/8/23", 
+      title: "Lorem ipsum may be used as a placeholder before copy is available.",
+      content: "Lorem ipsum may be used as a placeholder before copy is available. It is also used to temporarily",
+      author: "Shankar", 
+      desig: "Study Power CEO" },
+    { id: 5, image: "./Blog-images/blog-article-img5.png", 
+      date: "27/8/23", 
+      title: "Lorem ipsum may be used as a placeholder before copy is available.",
+      content: "Lorem ipsum may be used as a placeholder before copy is available. It is also used to temporarily",
+      author: "Hamsalekha", 
+      desig: "Study Power CEO" },
+   
+];
+  
+ 
+  var parentContainer = document.querySelector(".blog-container"); 
+  
+//  LOOP FOR THE BLOG CONTENT
+  blog_content.forEach(function (entry) {
+    
+    var blogEntry = document.createElement("div");
+    blogEntry.className = "row blog-recent-articles";
+    blogEntry.setAttribute("id", entry.id);
+
+    // Create the left column for the image
+    var imgColumn = document.createElement("div");
+    imgColumn.className = "col-sm-6 recent-article-img-div";
+    var img = document.createElement("img");
+    img.className = "img-fluid";
+    img.src = entry.image;
+    img.alt = "";
+    imgColumn.appendChild(img);
+  
+    // Create the right column for the content
+    var contentColumn = document.createElement("div");
+    contentColumn.className = "col-sm-6 recent-articles-content";
+    var date = document.createElement("h6");
+    date.className = "recent-article-desc";
+    date.textContent = entry.date;
+    
+    var title = document.createElement("p");
+    title.className = "recent-article-heading";
+    title.textContent = entry.title;
+    var content = document.createElement("p");
+    content.className = "recent-article-desc";
+    content.textContent = entry.content;
+  
+    // Create the row for author and designation
+    var authorRow = document.createElement("div");
+    authorRow.className = "row";
+    var authorImageColumn = document.createElement("div");
+    authorImageColumn.className = "col-sm-auto";
+    var authorImageDiv = document.createElement("div");
+    authorImageDiv.className = "userimg-div";
+    authorImageColumn.appendChild(authorImageDiv);
+  
+    var authorDetailsColumn = document.createElement("div");
+    authorDetailsColumn.className = "col-sm-auto";
+    var authorName = document.createElement("h6");
+    authorName.className = "recentblog-name";
+    authorName.textContent = entry.author;
+    var authorDesignation = document.createElement("h6");
+    authorDesignation.className = "recentblog-spec";
+    authorDesignation.textContent = entry.desig;
+    authorDetailsColumn.appendChild(authorName);
+    authorDetailsColumn.appendChild(authorDesignation);
+  
+    authorRow.appendChild(authorImageColumn);
+    authorRow.appendChild(authorDetailsColumn);
+  
+    // Append elements to the content column
+    contentColumn.appendChild(date);
+    contentColumn.appendChild(title);
+    contentColumn.appendChild(content);
+    contentColumn.appendChild(authorRow);
+  
+    // Append columns to the blog entry container
+    blogEntry.appendChild(imgColumn);
+    blogEntry.appendChild(contentColumn);
+  
+    
+    // Append the blog entry container to the parent container
+    parentContainer.appendChild(blogEntry);
+  });
+  
+----------------
+
+//send request to single blog page
+  var items = document.getElementsByClassName('blog-recent-articles');
+  console.log(items.length);
+  for (var i = 0; i < items.length; i++) {
+    console.log("ids",i,items[i]);
+    items[i].addEventListener('click', printDetails);
+  }
+  
+  function printDetails(e) {
+    console.log("Clicked " + this.id);
+   
+    window.location.href = "/singleBlog.html?blogid=" + this.id;
+  }
+  
+======================================================
+
+b)
+
+ //blog content
+  var blog_content = [
+    { id: 1, image: "./Blog-images/blog-article-img1.png", 
+      date: "23/8/23", 
+      title: "Article Title1",
+      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem est voluptatum in rerum
+                        velit, nesciunt consequuntur doloribus non optio tenetur cupiditate rem libero ducimus
+                        architecto aliquam provident quisquam facilis voluptate! Quibusdam totam neque nostrum nisi,
+                        officiis nam! Libero, ad sapiente aliquid suscipit molestiae necessitatibus quae in laboriosam
+                        magni rerum saepe eveniet facilis ipsa deleniti alias, nihil sint debitis accusamus hic mollitia
+                        commodi? Corporis est repellendus placeat, fugiat inventore iste saepe aspernatur accusantium,
+                        animi officiis ipsam facere necessitatibus reprehenderit quia sed quisquam nam ea cumque quas.
+                        Eum, quaerat? Animi reprehenderit quaerat sed, ratione voluptas maiores? Quisquam corrupti iste
+                        laborum magni eum exercitationem, accusamus temporibus rem maxime debitis cumque asperiores
+                        possimus porro numquam doloribus dolor saepe distinctio, ducimus libero officia vitae quibusdam.
+                        Iste voluptatibus culpa cum earum impedit maiores amet ratione neque corrupti molestias ipsa
+                        veniam et dolorem aspernatur sed nisi porro minus nesciunt, architecto, id quibusdam. Earum,
+                        eos, quae, rerum commodi repudiandae dolores culpa temporibus vitae provident fugiat ipsum eum
+                        natus amet! Delectus harum, quia aut illo maxime necessitatibus ea eligendi! Voluptas dolor
+                        saepe fugit reprehenderit voluptatem deserunt beatae distinctio repellat blanditiis molestiae
+                        dignissimos excepturi, delectus, suscipit error quidem at enim tenetur? Perspiciatis atque
+                        maiores, nulla facilis commodi qui excepturi.
+                        
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita non, illum voluptas ipsam
+                        quia necessitatibus explicabo, error consectetur aliquam nemo voluptate debitis perspiciatis
+                        rem, ea aliquid? Eaque accusantium deleniti quibusdam sequi quisquam aut delectus, tempora nulla
+                        fugiat harum voluptatibus vel error dolores, exercitationem quidem molestias explicabo iusto
+                        corrupti nihil distinctio pariatur eligendi alias? Corrupti nihil facere animi amet dolor
+                        minima! Cumque hic distinctio necessitatibus accusamus enim. Laudantium sunt enim sapiente, esse
+                        at facilis vero labore non vitae reiciendis obcaecati laborum asperiores facere nostrum, dolorum
+                        exercitationem architecto earum perferendis excepturi odio eius. Incidunt sint voluptatibus illo
+                        ullam error accusamus debitis!`,
+      author: "Nandhakumar", 
+      desig: "Study Power CEO" },
+    { id: 2, 
+      image: "./Blog-images/blog-article-img2.png", 
+      date: "24/8/23", 
+      title: "Article Title2",
+      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem est voluptatum in rerum
+                        velit, nesciunt consequuntur doloribus non optio tenetur cupiditate rem libero ducimus
+                        architecto aliquam provident quisquam facilis voluptate! Quibusdam totam neque nostrum nisi,
+                        officiis nam! Libero, ad sapiente aliquid suscipit molestiae necessitatibus quae in laboriosam
+                        magni rerum saepe eveniet facilis ipsa deleniti alias, nihil sint debitis accusamus hic mollitia
+                        commodi? Corporis est repellendus placeat, fugiat inventore iste saepe aspernatur accusantium,
+                        animi officiis ipsam facere necessitatibus reprehenderit quia sed quisquam nam ea cumque quas.
+                        Eum, quaerat? Animi reprehenderit quaerat sed, ratione voluptas maiores? Quisquam corrupti iste
+                        laborum magni eum exercitationem, accusamus temporibus rem maxime debitis cumque asperiores
+                        possimus porro numquam doloribus dolor saepe distinctio, ducimus libero officia vitae quibusdam.
+                        Iste voluptatibus culpa cum earum impedit maiores amet ratione neque corrupti molestias ipsa
+                        veniam et dolorem aspernatur sed nisi porro minus nesciunt, architecto, id quibusdam. Earum,
+                        eos, quae, rerum commodi repudiandae dolores culpa temporibus vitae provident fugiat ipsum eum
+                        natus amet! Delectus harum, quia aut illo maxime necessitatibus ea eligendi! Voluptas dolor
+                        saepe fugit reprehenderit voluptatem deserunt beatae distinctio repellat blanditiis molestiae
+                        dignissimos excepturi, delectus, suscipit error quidem at enim tenetur? Perspiciatis atque
+                        maiores, nulla facilis commodi qui excepturi.
+                        
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita non, illum voluptas ipsam
+                        quia necessitatibus explicabo, error consectetur aliquam nemo voluptate debitis perspiciatis
+                        rem, ea aliquid? Eaque accusantium deleniti quibusdam sequi quisquam aut delectus, tempora nulla
+                        fugiat harum voluptatibus vel error dolores, exercitationem quidem molestias explicabo iusto
+                        corrupti nihil distinctio pariatur eligendi alias? Corrupti nihil facere animi amet dolor
+                        minima! Cumque hic distinctio necessitatibus accusamus enim. Laudantium sunt enim sapiente, esse
+                        at facilis vero labore non vitae reiciendis obcaecati laborum asperiores facere nostrum, dolorum
+                        exercitationem architecto earum perferendis excepturi odio eius. Incidunt sint voluptatibus illo
+                        ullam error accusamus debitis!`,
+      author: "kushala", 
+      desig: "Study Power CEO" },
+    { id: 3, image: "./Blog-images/blog-article-img3.png", 
+      date: "25/8/23", 
+      title: "Article Title3",
+      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem est voluptatum in rerum
+                        velit, nesciunt consequuntur doloribus non optio tenetur cupiditate rem libero ducimus
+                        architecto aliquam provident quisquam facilis voluptate! Quibusdam totam neque nostrum nisi,
+                        officiis nam! Libero, ad sapiente aliquid suscipit molestiae necessitatibus quae in laboriosam
+                        magni rerum saepe eveniet facilis ipsa deleniti alias, nihil sint debitis accusamus hic mollitia
+                        commodi? Corporis est repellendus placeat, fugiat inventore iste saepe aspernatur accusantium,
+                        animi officiis ipsam facere necessitatibus reprehenderit quia sed quisquam nam ea cumque quas.
+                        Eum, quaerat? Animi reprehenderit quaerat sed, ratione voluptas maiores? Quisquam corrupti iste
+                        laborum magni eum exercitationem, accusamus temporibus rem maxime debitis cumque asperiores
+                        possimus porro numquam doloribus dolor saepe distinctio, ducimus libero officia vitae quibusdam.
+                        Iste voluptatibus culpa cum earum impedit maiores amet ratione neque corrupti molestias ipsa
+                        veniam et dolorem aspernatur sed nisi porro minus nesciunt, architecto, id quibusdam. Earum,
+                        eos, quae, rerum commodi repudiandae dolores culpa temporibus vitae provident fugiat ipsum eum
+                        natus amet! Delectus harum, quia aut illo maxime necessitatibus ea eligendi! Voluptas dolor
+                        saepe fugit reprehenderit voluptatem deserunt beatae distinctio repellat blanditiis molestiae
+                        dignissimos excepturi, delectus, suscipit error quidem at enim tenetur? Perspiciatis atque
+                        maiores, nulla facilis commodi qui excepturi.
+                        
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita non, illum voluptas ipsam
+                        quia necessitatibus explicabo, error consectetur aliquam nemo voluptate debitis perspiciatis
+                        rem, ea aliquid? Eaque accusantium deleniti quibusdam sequi quisquam aut delectus, tempora nulla
+                        fugiat harum voluptatibus vel error dolores, exercitationem quidem molestias explicabo iusto
+                        corrupti nihil distinctio pariatur eligendi alias? Corrupti nihil facere animi amet dolor
+                        minima! Cumque hic distinctio necessitatibus accusamus enim. Laudantium sunt enim sapiente, esse
+                        at facilis vero labore non vitae reiciendis obcaecati laborum asperiores facere nostrum, dolorum
+                        exercitationem architecto earum perferendis excepturi odio eius. Incidunt sint voluptatibus illo
+                        ullam error accusamus debitis!`,
+      author: "DishaMore", 
+      desig: "Study Power CEO" },
+    { id: 4, image: "./Blog-images/blog-article-img4.png", 
+      date: "26/8/23", 
+      title: "Article Title4",
+      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem est voluptatum in rerum
+                        velit, nesciunt consequuntur doloribus non optio tenetur cupiditate rem libero ducimus
+                        architecto aliquam provident quisquam facilis voluptate! Quibusdam totam neque nostrum nisi,
+                        officiis nam! Libero, ad sapiente aliquid suscipit molestiae necessitatibus quae in laboriosam
+                        magni rerum saepe eveniet facilis ipsa deleniti alias, nihil sint debitis accusamus hic mollitia
+                        commodi? Corporis est repellendus placeat, fugiat inventore iste saepe aspernatur accusantium,
+                        animi officiis ipsam facere necessitatibus reprehenderit quia sed quisquam nam ea cumque quas.
+                        Eum, quaerat? Animi reprehenderit quaerat sed, ratione voluptas maiores? Quisquam corrupti iste
+                        laborum magni eum exercitationem, accusamus temporibus rem maxime debitis cumque asperiores
+                        possimus porro numquam doloribus dolor saepe distinctio, ducimus libero officia vitae quibusdam.
+                        Iste voluptatibus culpa cum earum impedit maiores amet ratione neque corrupti molestias ipsa
+                        veniam et dolorem aspernatur sed nisi porro minus nesciunt, architecto, id quibusdam. Earum,
+                        eos, quae, rerum commodi repudiandae dolores culpa temporibus vitae provident fugiat ipsum eum
+                        natus amet! Delectus harum, quia aut illo maxime necessitatibus ea eligendi! Voluptas dolor
+                        saepe fugit reprehenderit voluptatem deserunt beatae distinctio repellat blanditiis molestiae
+                        dignissimos excepturi, delectus, suscipit error quidem at enim tenetur? Perspiciatis atque
+                        maiores, nulla facilis commodi qui excepturi.
+                        
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita non, illum voluptas ipsam
+                        quia necessitatibus explicabo, error consectetur aliquam nemo voluptate debitis perspiciatis
+                        rem, ea aliquid? Eaque accusantium deleniti quibusdam sequi quisquam aut delectus, tempora nulla
+                        fugiat harum voluptatibus vel error dolores, exercitationem quidem molestias explicabo iusto
+                        corrupti nihil distinctio pariatur eligendi alias? Corrupti nihil facere animi amet dolor
+                        minima! Cumque hic distinctio necessitatibus accusamus enim. Laudantium sunt enim sapiente, esse
+                        at facilis vero labore non vitae reiciendis obcaecati laborum asperiores facere nostrum, dolorum
+                        exercitationem architecto earum perferendis excepturi odio eius. Incidunt sint voluptatibus illo
+                        ullam error accusamus debitis!`,
+      author: "Shankar", 
+      desig: "Study Power CEO" },
+    { id: 5, image: "./Blog-images/blog-article-img5.png", 
+      date: "27/8/23", 
+      title: "Article Title5",
+      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptatem est voluptatum in rerum
+                        velit, nesciunt consequuntur doloribus non optio tenetur cupiditate rem libero ducimus
+                        architecto aliquam provident quisquam facilis voluptate! Quibusdam totam neque nostrum nisi,
+                        officiis nam! Libero, ad sapiente aliquid suscipit molestiae necessitatibus quae in laboriosam
+                        magni rerum saepe eveniet facilis ipsa deleniti alias, nihil sint debitis accusamus hic mollitia
+                        commodi? Corporis est repellendus placeat, fugiat inventore iste saepe aspernatur accusantium,
+                        animi officiis ipsam facere necessitatibus reprehenderit quia sed quisquam nam ea cumque quas.
+                        Eum, quaerat? Animi reprehenderit quaerat sed, ratione voluptas maiores? Quisquam corrupti iste
+                        laborum magni eum exercitationem, accusamus temporibus rem maxime debitis cumque asperiores
+                        possimus porro numquam doloribus dolor saepe distinctio, ducimus libero officia vitae quibusdam.
+                        Iste voluptatibus culpa cum earum impedit maiores amet ratione neque corrupti molestias ipsa
+                        veniam et dolorem aspernatur sed nisi porro minus nesciunt, architecto, id quibusdam. Earum,
+                        eos, quae, rerum commodi repudiandae dolores culpa temporibus vitae provident fugiat ipsum eum
+                        natus amet! Delectus harum, quia aut illo maxime necessitatibus ea eligendi! Voluptas dolor
+                        saepe fugit reprehenderit voluptatem deserunt beatae distinctio repellat blanditiis molestiae
+                        dignissimos excepturi, delectus, suscipit error quidem at enim tenetur? Perspiciatis atque
+                        maiores, nulla facilis commodi qui excepturi.
+                        
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita non, illum voluptas ipsam
+                        quia necessitatibus explicabo, error consectetur aliquam nemo voluptate debitis perspiciatis
+                        rem, ea aliquid? Eaque accusantium deleniti quibusdam sequi quisquam aut delectus, tempora nulla
+                        fugiat harum voluptatibus vel error dolores, exercitationem quidem molestias explicabo iusto
+                        corrupti nihil distinctio pariatur eligendi alias? Corrupti nihil facere animi amet dolor
+                        minima! Cumque hic distinctio necessitatibus accusamus enim. Laudantium sunt enim sapiente, esse
+                        at facilis vero labore non vitae reiciendis obcaecati laborum asperiores facere nostrum, dolorum
+                        exercitationem architecto earum perferendis excepturi odio eius. Incidunt sint voluptatibus illo
+                        ullam error accusamus debitis!`,
+      author: "Hamsalekha", 
+      desig: "Study Power CEO" },
+   
+];
+
+console.log(window.location.href);
+function getSearchParameters() {
+    var prmstr = window.location.search.substr(1);
+    return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
+}
+
+function transformToAssocArray( prmstr ) {
+    var params = {};
+    var prmarr = prmstr.split("&");
+    for ( var i = 0; i < prmarr.length; i++) {
+        var tmparr = prmarr[i].split("=");
+        params[tmparr[0]] = tmparr[1];
+    }
+    return params;
+}
+
+var params = getSearchParameters();
+console.log("pramsss",params['blogid']);
+// Finding car object with modal "X5" 
+const searchObject= blog_content.find((x) => x.id==params['blogid']);
+
+console.log(`blog object ${searchObject.id}`);
+console.log(`blog object ${searchObject.date}`);
+console.log(`blog object ${searchObject.title}`);
+console.log(`blog object ${searchObject.content}`);
+console.log(`blog object ${searchObject.author}`);
+console.log(`blog object ${searchObject.desig}`);
+console.log(`blog object ${searchObject.image}`);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelector('.recentblog-name').textContent = searchObject.author;
+    document.querySelector('.recentblog-spec').textContent = searchObject.desig;
+    
+    document.querySelector('.blogpage-heading').textContent = searchObject.title;
+    
+    document.querySelector('.blogcontent').textContent = searchObject.content;
+
+    const imageElement = document.querySelector('.single-blog-img-dy_src');
+    console.log(imageElement)
+    imageElement.src = searchObject.image;
+    // imageElement.setAttribute('src', searchObject.image);
+});
+
+
+
